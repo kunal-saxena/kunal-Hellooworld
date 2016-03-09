@@ -38,6 +38,7 @@ public class HelloServlet extends HttpServlet {
 		response.setStatus(200);
 		PrintWriter writer = response.getWriter();
 		writer.println("Hello World - Kunal updating comment");
+		writer.println("Hello World - Adding one more comment to see how it reflects");
 		writer.close();
 	}
 }
