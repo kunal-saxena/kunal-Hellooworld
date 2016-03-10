@@ -21,37 +21,58 @@ SOFTWARE.
 
 package org.hp.samples;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-public class HelloServlet extends HttpServlet {
+public class CapitalizeApplet extends Applet {
 
-	private static final long serialVersionUID = 1L;
-	private TextField input;
-	private TextField output;
+  private TextField input;
+  private TextField output;
+  
+  public void init () {
+   
+     // Construct the TextFields
+     this.input = new TextField(40);
+     this.output = new TextField(40);
+     this.output.setEditable(false);
+     Button b = new Button("Capitalize");
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/plain");
-		response.setStatus(200);
-		PrintWriter writer = response.getWriter();
-		writer.println("Hello World - Kunal updating comment");
-		writer.println("Hello World - Adding one more comment to see how it reflects");
-		writer.println("Comment on 10 March");
-		writer.close();
-		this.input = new TextField(40);
-		this.output = new TextField(40);		
-		Button b = new Button("Capitalize");
-		
-		     this.add(input);
-		     this.add(b);
-		     this.add(output);
-	}
+     // add the button to the layout
+     this.add(input);
+     this.add(b);
+     this.add(output);
+
+     // specify that action events sent by the
+     // button or the input TextField should be handled 
+     // by the same CapitalizerAction object
+     CapitalizerAction ca = new CapitalizerAction(input, output);
+     b.addActionListener(ca);
+     this.input.addActionListener(ca);
+
+     // notice that ActionEvents produced by output are ignored.
+   
+   }
+
+}
+
+
+class CapitalizerAction implements ActionListener {
+
+  private TextField in;
+  private TextField out;
+
+  public CapitalizerAction(TextField in, TextField out) {
+    this.in = in;
+    this.out = out;
+  }
+
+  public void actionPerformed(ActionEvent ae) {
+
+    String s = in.getText();
+    out.setText(s.toUpperCase());
+
+  }
+
 }
