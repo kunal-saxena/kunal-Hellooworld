@@ -23,6 +23,9 @@ package org.hp.samples;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
