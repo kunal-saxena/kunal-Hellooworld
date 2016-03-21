@@ -40,6 +40,7 @@ public class HelloServlet extends HttpServlet {
 		writer.println("Hello World - Kunal updating comment");
 		writer.println("Hello World - Adding one more comment to see how it reflects");
 		writer.println("Comment on 10 March");
+		writer.println("Comment on 21 March");
 		writer.close();
 	}
 }
