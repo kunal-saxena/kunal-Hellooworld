@@ -3,6 +3,6 @@
 # We have created a delivery pipeline
 applications:
 # We have reserved a name/route for your app
-- name: test-app
-  host: test-app
+- name: App-3
+  host: App-3
   domain: kunal.domain.com.sitikantha.stacktest.io
